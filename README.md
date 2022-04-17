@@ -42,10 +42,11 @@ class(iris_data)
 dim(iris_data)
 ```
 
-<p align="justify">Because of this, it’s easy to check if the dataset was loaded to the data frame correctly. Using head() and tail() , python checks the first and last rows of the data frame, comparisons to the original csv can easily be made.  The data is loaded in table format, all the measurements are in centimetres *(cm)* and in the head preview we can see how it is arranged:  <br/> </p>
+<p align="justify">Because of this, it’s easy to check if the dataset was loaded to the data frame correctly. Using head() and tail() , python checks the first and last rows of the data frame, comparisons to the original csv can easily be made.  The data is loaded in table format, all the measurements are in centimetres *(cm)* and in the head preview we can see how it is arranged. The command tail() is particularly useful as most issues with a dataset failing to load, occurs at the end of the dataset.    <br/> </p>
 
 ```python
 head(iris_data)
+tail(iris_data)
 ```
 
 | Sepal.Length     | Sepal.Width      | Petal.Length     | Petal.Width     |Species   |
@@ -60,11 +61,17 @@ head(iris_data)
 
  <br/>
 
-<p align="justify">The command tail() is particularly useful as most issues with a dataset failing to load, occurs at the end of the dataset.  The data frame is also checked for missing or null values and duplicate values. These values might skew our visualisation or lead to misleading reports. Info() command is used to get details about the dataframe, such as the number of rows and column, if null values exist as well as the columns names and the types of data they contain. We have 4 numeric values and 1 non numeric value. The variables looking at length and width are floats, representing petal and sepal measurements, while species is a string variable. Within Python, Object is used to store string variables or if the column contains a mix of data types. <br/></p>
+<p align="justify">The data frame is also checked for missing or null values and duplicate values. These values might skew our visualisation or lead to misleading reports. Since the dataframe is based on 'real world' data, duplicates are more commonly expected. A ratio between species was checked for imbalances and since there was no significant disproportion between species caused by duplicate results, these results were not excluded. Info() command is used to get details about the dataframe, such as the number of rows and column, if null values exist as well as the columns names and the types of data they contain. We have 4 numeric values and 1 non numeric value. The variables looking at length and width are floats, representing petal and sepal measurements, while species is a string variable. Within Python, Object is used to store string variables or if the column contains a mix of data types. <br/></p>
 
 ```python
-iris_data.info()
+iris_data[iris_data.duplicated()]
 print(*iris_data.isna().any())
+iris_data.info()
 ```
 
-<p align="justify">The describe() command also provides statistical insight on the numeric type columns. Describe provides a summary of statistic calculations; showing that all 4 measures have the same count and sepal length has the largest mean value which would be expected based on the figure above. We know that sepal measurements are from a larger area of the flower but using the describe command confirms this since the min and max sepal measurements are larger than that of the petal measurements. The describe command also provides the std which is the amount of variation across the dataframe and the quantiles of the dataframe, which shows how the data is distributed between the minimum and maximum numbers.  <br/></p>
+<p align="justify">The describe() command also provides statistical insight on the numeric type columns. Describe provides a summary of statistic calculations; showing that all 4 measures have the same count and sepal length has the largest mean value which would be expected based on the figure above. We know that sepal measurements are from a larger area of the flower but using the describe command confirms this since the min and max sepal measurements are larger than that of the petal measurements. The describe command also provides the std which is the amount of variation across the dataframe and the quantiles of the dataframe, which shows how the data is distributed between the minimum and maximum numbers.Describe can also be run on selected columns:  <br/></p>
+
+```python
+iris_data.describe()
+iris_data[["sepal_length"]].describe()
+```
