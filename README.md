@@ -5,8 +5,13 @@
 ### Introduction 
 <p align="justify">
 This ReadMe file contains an overview of my research carried out on the Fisher’s Iris data set. The research project is part of my continuous assessment for the module Programming and Scripting. A description of the course and assignment can be found on the course homepage here. The ReadMe file will provide a summary of background information on the Fishers’ Iris data set and documentation of the Python programming code used for analytical research. Key aspects of the code used will be explained as well as detailed explanation of the resulting output. <br/> </p>
+<p align="center">
+  <img src="https://github.com/megan1103/pands-project/blob/main/Iris%20flowers%20in%20Fisher%20dataset.png" >
+</p>
+<br/> 
 
-### Summary 
+
+### Summary of Dataset 
 >#### *Description* 
 <p align="justify">The dataset was initially created as an example if linear analysis by British statistician and biologist Ronald Fisher. The dataset comprises of 50 flowers for each of the three species of iris. The species are Iris setosa, versicolor, and virginica. Four features were measured from each sample, they are the length and the width of sepal and petal respectively, in centimetres. From this dataset, Fisher developed a linear model; distinguishing species based on the combination of those four features. Fisher’s Iris data set is one of the most famous multivariate data set used for testing various Machine Learning Algorithms. To summarise the Each sample has 4 features (length of petal, width of petal, length of sepal, width of sepal) and a specie name. The following image shows the difference between a petal and sepal, when measuring width and length. From the imagine, it’s easy to appreciate how meticulous fisher was in recording the measurements of 150 flowers.  <br/> </p>
 
@@ -75,3 +80,20 @@ iris_data.info()
 iris_data.describe()
 iris_data[["sepal_length"]].describe()
 ```
+### Visualization 
+> #### *Scatter Plot*
+<p align="justify">To better understand the dataset, different plots were used to analyse the comparison between various species based on sepal and petal measurements. Looking firstly at sepal length and width, the scatter plot shows that the Setosa spcies has a smaller sepal length but higher width while Virginica is the opposite having a larger sepal length then width. The Versicolor species lies in the middle between the two other species. From the scatter plot we can also tell that there is a high correlation between sepal lebth and weidth for Setosa flowers.In comparison, there is less correlation between the measures for both Vericolor and Virginica, where the data points are more spread out. The second scatter plot replaces sepal with petal data points and again there is a correlation between petal length and width for the Setosa flowers. There is also a slight correlation for Versicolor flowers though the data points aren't as densly populated as the Setosa flowers.  <br/></p>
+
+```python
+ sns.scatterplot(iris_data['sepal_length'],iris_data['sepal_width'],hue =iris_data['species'],s=50)
+ ```
+ 
+ <p align="center">
+  <img src="https://github.com/megan1103/pands-project/blob/main/Comparison%20between%20various%20species%20via%20sepal.png" >
+</p>
+<br/> 
+
+ <p align="center">
+  <img src="https://github.com/megan1103/pands-project/blob/main/Comparison%20between%20various%20species%20via%20petal.png" >
+</p>
+<br/> 
