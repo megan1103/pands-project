@@ -82,7 +82,7 @@ iris_data[["sepal_length"]].describe()
 ```
 ### Visualization 
 > #### *Scatter Plot*
-<p align="justify">To better understand the dataset, different plots were used to analyse the comparison between various species based on sepal and petal measurements. Looking firstly at sepal length and width, the scatter plot shows that the Setosa spcies has a smaller sepal length but higher width while Virginica is the opposite having a larger sepal length then width. The Versicolor species lies in the middle between the two other species. From the scatter plot we can also tell that there is a high correlation between sepal lebth and weidth for Setosa flowers.In comparison, there is less correlation between the measures for both Vericolor and Virginica, where the data points are more spread out. The second scatter plot replaces sepal with petal data points and again there is a correlation between petal length and width for the Setosa flowers. There is also a slight correlation for Versicolor flowers though the data points aren't as densly populated as the Setosa flowers.  <br/></p>
+<p align="justify">To better understand the dataset, different plots were used to analyse the comparison between various species based on sepal and petal measurements. Looking firstly at sepal length and width, the scatter plot shows that the Setosa spcies has a smaller sepal length but higher width while Virginica is the opposite having a larger sepal length then width. The Versicolor species lies in the middle between the two other species. From the scatter plot we can also tell that there is a high correlation between sepal lebth and weidth for Setosa flowers.In comparison, there is less correlation between the measures for both Vericolor and Virginica, where the data points are more spread out. The second scatter plot replaces sepal with petal data points and again there is a correlation between petal length and width for the Setosa flowers. There is also a slight correlation for Versicolor flowers though the data points aren't as densly populated as the Setosa flowers. From the scatter plots, there is not a large overlap of data points between Setosa flowers and the other species for petal measurements.  <br/></p>
 
 ```python
  sns.scatterplot(iris_data['sepal_length'],iris_data['sepal_width'],hue =iris_data['species'],s=50)
@@ -98,3 +98,18 @@ iris_data[["sepal_length"]].describe()
 </p>
 <br/> 
  
+ 
+> #### *Pair Plot*
+<p align="justify">A pairplot shows the distribution and relationship between a number of variables at once instead of plotting them individually. Assigning hue="Species", adds mapping and changes the default histogram plot to a layered kernel density estimate. There is a high correlation between petal length and width across flower types. Petal length and width are also the most useful variables to distingush between various flower types. The relationship between flower type and measurements is distinctively different for Setosa flowers.The setosa flower type is linearly separable from the other flower types, although there is only slight overlapp between Virnica and Versicolor. Setosa is distinctly different from those of the other two species.  <br/></p>
+
+```python
+df2 = sns.pairplot(df,hue="Species")
+```
+
+ <p align="center">
+  <img src="https://github.com/megan1103/pands-project/blob/main/pairplot.png" >
+</p>
+<br/> 
+
+> #### *Correlation Plot*
+<p align="justify">From the previous plots, a correlation between petal length and petal width. A correlation plot is used to futher valiate this claim. Pandas dataframe.corr() is used to find the pairwise correlation of all columns in the dataframe.
