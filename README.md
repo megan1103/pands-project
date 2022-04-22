@@ -112,4 +112,4 @@ df2 = sns.pairplot(df,hue="Species")
 <br/> 
 
 > #### *Correlation Plot*
-<p align="justify">From the previous plots, a correlation between petal length and petal width. A correlation plot is used to futher valiate this claim. Pandas dataframe.corr() is used to find the pairwise correlation of all columns in the dataframe.
+<p align="justify">From the previous plots, a known correlation between petal length and petal width exists. A correlation plot is used to further validate this claim. Pandas dataframe.corr() is used to find the pairwise correlation of all columns in the dataframe. Using python, a correlation can be created either as a table or as a heat chart, the difference between either results is based solely on visualisation. The correlation table confirms a high correlation between petal length 
