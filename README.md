@@ -100,10 +100,10 @@ iris_data[["sepal_length"]].describe()
  
  
 > #### *Pair Plot*
-<p align="justify">A pairplot shows the distribution and relationship between a number of variables at once instead of plotting them individually. Assigning hue="Species", adds mapping and changes the default histogram plot to a layered kernel density estimate. There is a high correlation between petal length and width across flower types. Petal length and width are also the most useful variables to distingush between various flower types. The relationship between flower type and measurements is distinctively different for Setosa flowers.The setosa flower type is linearly separable from the other flower types, although there is only slight overlapp between Virnica and Versicolor. Setosa is distinctly different from those of the other two species.  <br/></p>
+<p align="justify">The seaborn library creates the pairplot which shows the distribution and relationship between a number of variables at once instead of plotting them individually. Assigning hue="Species", adds mapping and changes the default histogram plot to a layered kernel density estimate. There is a high correlation between petal length and width across flower types. Petal length and width are also the most useful variables to distingush between various flower types. The relationship between flower type and measurements is distinctively different for Setosa flowers.The setosa flower type is linearly separable from the other flower types, although there is only slight overlapp between Virnica and Versicolor. Setosa is distinctly different from those of the other two species.  <br/></p>
 
 ```python
-df2 = sns.pairplot(df,hue="Species")
+df2 = sns.pairplot(iris_data,hue="Species")
 ```
 
  <p align="center">
@@ -112,4 +112,25 @@ df2 = sns.pairplot(df,hue="Species")
 <br/> 
 
 > #### *Correlation Plot*
-<p align="justify">From the previous plots, a known correlation between petal length and petal width exists. A correlation plot is used to further validate this claim. Pandas dataframe.corr() is used to find the pairwise correlation of all columns in the dataframe. Using python, a correlation can be created either as a table or as a heat chart, the difference between either results is based solely on visualisation. The correlation table confirms a high correlation between petal length 
+<p align="justify">From the previous plots, a known correlation between petal length and petal width exists. A correlation plot is used to further validate this claim. Pandas .corr() is used to find the pairwise correlation of all columns in the dataframe. Using python, a correlation can be created either as a table or as a heat chart, the difference between either results is based solely on visualisation. Seaborn package is used to create a heatmap, using annot=True to include the correlation values. The correlation table confirms a high correlation between petal length and petal width. There is also a slight correlation between sepal length and both petal length and petal width.     <br/> </p>
+
+```python
+iris_data.corr()
+sns.heatmap(iris_data.corr(),  linecolor = 'white', linewidths = 1,annot=True) 
+```
+
+ <br/>
+
+
+|      | Sepal-Length     | Sepal-Width      | Petal-Length     | Petal-Width     |
+| ------------- | ------------- | -------- | -------- | -------- |
+|      Sepal-Length    |      1.000000    |      -0.109369    |      0.871754    |      0.817954|
+|      Sepal-Width    |      -0.109369    |      1.000000    |      -0.420516    |      -0.356544|
+|      Petal-Length    |      0.871754    |      -0.420516    |      1.000000    |      0.962757|
+|      Petal-Width    |      0.817954    |      -0.356544    |      0.962757    |      1.000000|
+
+
+ <br/>
+
+> #### *Histogram Plot*
+<p align="justify">
