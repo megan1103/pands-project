@@ -33,8 +33,36 @@ print(*iris_data.isna().any())
 print(iris_data.describe())
 print(iris_data.info())
 
-# Describe can also be used on one column 
-print(iris_data.describe())
-
 ## group the example dataframe by the species and then run the describe() method on iris. This would run .describe() on the sepal_length values for each season as a grouped dataset. 
 print(iris_data.groupby(["Species"])[["Sepal-Length"]].describe())
+
+##plots
+# Histogram
+hist = iris_data.hist()
+plt.show()
+
+# Scatter Plots showing length vs width split by flower type
+plt.title("Comparison between various species based on Sepal length and width")
+plt.xlabel('Sepal length',fontsize=15)
+plt.ylabel('Sepal width',fontsize=15)
+sns.scatterplot(iris_data['Sepal-Length'],iris_data['Sepal-Width'],hue =iris_data['Species'],s=50)
+plt.show()
+
+plt.title("Comparison between various species based on Petal length and width")
+plt.xlabel('Petal length',fontsize=15)
+plt.ylabel('Petal width',fontsize=15)
+sns.scatterplot(iris_data['Petal-Length'],iris_data['Petal-Width'],hue =iris_data['Species'],s=50)
+plt.show()
+
+#Pairs Plot
+## Compares Petal and Sepal features at once
+df2 = sns.pairplot(iris_dataset,hue="Species")
+plt.show()
+
+# Correlation Plot
+## Heat Map 
+sns.heatmap(iris_data.corr(),  linecolor = 'white', linewidths = 1,annot=True) 
+plt.show()
+
+## Correlation Table
+print(iris_data.corr())
