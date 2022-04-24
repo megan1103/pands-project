@@ -47,14 +47,18 @@ class(iris_data)
 dim(iris_data)
 ```
 
-<p align="justify">Because of this, it’s easy to check if the dataset was loaded to the data frame correctly. Using head() and tail() , python checks the first and last rows of the data frame, comparisons to the original csv can easily be made.  The data is loaded in table format, all the measurements are in centimetres *(cm)* and in the head preview we can see how it is arranged. The command tail() is particularly useful as most issues with a dataset failing to load, occurs at the end of the dataset.    <br/> </p>
+<p align="justify">Because of this, it’s easy to check if the dataset was loaded to the data frame correctly. Using head() and tail() , python checks the first and last rows of the data frame, comparisons to the original csv can easily be made.  The data is loaded in table format, all the measurements are in centimetres *(cm)* and in the head preview we can see how it is arranged and if column names need to be changed. The command tail() is particularly useful as most issues with a dataset failing to load, occurs at the end of the dataset.   <br/> </p>
 
 ```python
 head(iris_data)
 tail(iris_data)
-```
+iris_data = iris_data.rename({'sepal_length': 'Sepal-Length', 'sepal_width': 'Sepal-Width',
+      'petal_length': 'Petal-Length', 'petal_width': 'Petal-Width', 'species': 'Species'}, axis=1)
 
-| Sepal.Length     | Sepal.Width      | Petal.Length     | Petal.Width     |Species   |
+```
+ <br/>
+
+| Sepal_Length     | Sepal_Width      | Petal_Length     | Petal_Width     |Species   |
 | ------------- | ------------- | -------- | -------- | -------- |
 |      5.1    |      3.5    |      1.4    |      0.2    |      setosa|
 |      4.9    |      3.0    |      1.4    |      0.2    |      setosa|
@@ -78,7 +82,7 @@ iris_data.info()
 
 ```python
 iris_data.describe()
-iris_data[["sepal_length"]].describe()
+iris_data[["Sepal_Length"]].describe()
 ```
 ### Visualization 
 
@@ -95,13 +99,19 @@ iris_data[["sepal_length"]].describe()
 <p align="justify">To better understand the dataset, different plots were used to analyse the comparison between various species based on sepal and petal measurements. Looking firstly at sepal length and width, the scatter plot shows that the Setosa species has a smaller sepal length but higher width while Virginica is the opposite having a larger sepal length then width. The Versicolor species lies in the middle between the two other species. From the scatter plot we can also tell that there is a high correlation between sepal length and width for Setosa flowers. In comparison, there is less correlation between the measures for both Vericolor and Virginica, where the data points are more spread out. The second scatter plot replaces sepal with petal data points and again there is a correlation between petal length and width for the Setosa flowers. There is also a slight correlation for Versicolor flowers though the data points aren't as densely populated as the Setosa flowers. From the scatter plots, there is not a large overlap of data points between Setosa flowers and the other species for petal measurements.  <br/></p>
 
 ```python
- sns.scatterplot(iris_data['sepal_length'],iris_data['sepal_width'],hue =iris_data['species'],s=50)
+ sns.scatterplot(iris_data['Sepal_Length'],iris_data['Sepal_Width'],hue =iris_data['Species'],s=50)
  ```
  
  <p align="centre">
   <img src="https://github.com/megan1103/pands-project/blob/main/Comparison%20between%20various%20species%20via%20sepal.png" >
 </p>
 <br/> 
+
+
+```python
+ sns.scatterplot(iris_data['Petal_Length'],iris_data['Petal_Width'],hue =iris_data['Species'],s=50)
+ ```
+ 
 
  <p align="centre">
   <img src="https://github.com/megan1103/pands-project/blob/main/Comparison%20between%20various%20species%20via%20petal.png" >
@@ -132,7 +142,7 @@ sns.heatmap(iris_data.corr(),  linecolor = 'white', linewidths = 1,annot=True)
  <br/>
 
 
-|      | Sepal-Length     | Sepal-Width      | Petal-Length     | Petal-Width     |
+|      | Sepal_Length     | Sepal_Width      | Petal_Length     | Petal_Width     |
 | ------------- | ------------- | -------- | -------- | -------- |
 |      Sepal-Length    |      1.000000    |      -0.109369    |      0.871754    |      0.817954|
 |      Sepal-Width    |      -0.109369    |      1.000000    |      -0.420516    |      -0.356544|
