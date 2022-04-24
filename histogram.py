@@ -53,9 +53,8 @@ iris =  pd.read_csv(csv_file)
 
 dataset = pd.DataFrame(iris)
 #df = dataset.rename  = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'species']
-df = dataset.rename({'sepal_length': 'Sepal-Length', 'sepal_width': 'Sepal-Width', 'petal_length': 'Petal-Length', 'petal_width': 'Petal-Width', 'species': 'Species'}, axis=1)
+iris_data = dataset.rename({'sepal_length': 'Sepal-Length', 'sepal_width': 'Sepal-Width', 'petal_length': 'Petal-Length', 'petal_width': 'Petal-Width', 'species': 'Species'}, axis=1)
 
-fig = plt.figure(figsize = (8,8))
-ax = fig.gca()
-df.hist(ax=ax)
+hist = iris_data.hist()
 plt.show()
+
