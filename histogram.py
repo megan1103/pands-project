@@ -3,9 +3,7 @@
 # Author: Megan O'Donovan
 # Summary: Create a histogram of each variable
 import pandas as pd 
-import numpy as np
-import matplotlib.pyplot as pl
-import seaborn as sns
+import matplotlib.pyplot as plt
 
 csv_file = 'C:/Users/odonovanm/Documents/iris dataset.csv'
 iris =  pd.read_csv(csv_file)
