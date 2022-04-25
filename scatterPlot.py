@@ -5,43 +5,22 @@
 import numpy as np    
 import pandas as pd
 import matplotlib.pyplot as plt
-
 import seaborn as sns
+
 csv_file = 'C:/Users/odonovanm/Documents/iris dataset.csv'
 iris =  pd.read_csv(csv_file)
-dataset = pd.DataFrame(iris)
-#df = dataset.rename  = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'species']
-df = dataset.rename({'sepal_length': 'Sepal-Length', 'sepal_width': 'Sepal-Width', 'petal_length': 'Petal-Length', 'petal_width': 'Petal-Width', 'species': 'Species'}, axis=1)
-plt.figure(4, figsize=(10, 8))
-df.plot(kind ="scatter",
-          x ='Sepal-Length',
-          y ='Petal-Length')
-plt.grid()
-plt.show()
+iris_data = iris.rename({'sepal_length': 'Sepal-Length', 'sepal_width': 'Sepal-Width', 'petal_length': 'Petal-Length', 'petal_width': 'Petal-Width', 'species': 'Species'}, axis=1)
 
-# sepal_length, petal_length are iris
-# feature data height used to define
-# Height of graph whereas hue store the
-# class of iris dataset.
-sns.FacetGrid(df, hue ="Species",
-              height = 6).map(plt.scatter,
-                              'Sepal-Length',
-                              'Sepal-Width').add_legend()
+#scatter plot showing relationship between sepal features for the different flower types
+plt.title("Comparison between various species based on Sepal length and width")
 plt.xlabel('Sepal length',fontsize=15)
 plt.ylabel('Sepal width',fontsize=15)
-plt.xticks(fontsize=15)
-plt.yticks(fontsize=15)
-plt.title('Sepal length vs. Sepal width',fontsize=15)
-plt.legend(prop={'size': 13})
+sns.scatterplot(iris_data['Sepal-Length'],iris_data['Sepal-Width'],hue =iris_data['Species'],s=50)
 plt.show()
-sns.FacetGrid(df, hue ="Species",
-              height = 6).map(plt.scatter,
-                              'Petal-Length',
-                              'Petal-Width').add_legend()
+
+#scatter plot showing relationship between petal features for the different flower types
+plt.title("Comparison between various species based on Petal length and width")
 plt.xlabel('Petal length',fontsize=15)
 plt.ylabel('Petal width',fontsize=15)
-plt.xticks(fontsize=15)
-plt.yticks(fontsize=15)
-plt.title('Petal length vs. Petal width',fontsize=15)
-plt.legend(prop={'size': 13})
+sns.scatterplot(iris_data['Petal-Length'],iris_data['Petal-Width'],hue =iris_data['Species'],s=50)
 plt.show()
