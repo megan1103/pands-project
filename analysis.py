@@ -46,12 +46,14 @@ plt.title("Comparison between various species based on Sepal length and width")
 plt.xlabel('Sepal length',fontsize=15)
 plt.ylabel('Sepal width',fontsize=15)
 sns.scatterplot(iris_data['Sepal-Length'],iris_data['Sepal-Width'],hue =iris_data['Species'],s=50)
+plt.savefig('C:/Users/odonovanm/Documents/sepal_scatterplot.png')
 plt.show()
 
 plt.title("Comparison between various species based on Petal length and width")
 plt.xlabel('Petal length',fontsize=15)
 plt.ylabel('Petal width',fontsize=15)
 sns.scatterplot(iris_data['Petal-Length'],iris_data['Petal-Width'],hue =iris_data['Species'],s=50)
+plt.savefig('C:/Users/odonovanm/Documents/petal-scatterplot.png')
 plt.show()
 
 #Pairs Plot
