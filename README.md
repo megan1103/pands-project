@@ -9,6 +9,7 @@
   <br>>***[Load the Data](#load-the-data)***
   <br>>***[Data Overview](#data-overview)***<br>
 ***[Analyse and Visualize the Data](#analyse-and-visualize-the-data)***
+  <br>>***[Statistical Summary Tables](#statistical-summary-tables)***
   <br>>***[Histogram Plot](#histogram-plot)***
   <br>>***[Scatter Plot](#scatter-plot)***
   <br>>***[Pair Plot](#pair-plot)***
@@ -91,7 +92,7 @@ print(*iris_data.isna().any())
 ```
 
 ### Analyse and Visualize the Data
-> #### *Satistical Summary Tables*
+> #### *Statistical Summary Tables*
 <p align="justify"> <em>Info()</em> command was used to obtain details about the data frame, such as the number of rows and column, if null values exist, columns names and the types of data. The dataset had 4 numeric values and 1 non-numeric value. The variables looking at length and width were floats, representing petal and sepal measurements, while species was a string variable. Within Python, <em>Object</em> describes a stored string variable or if the column contains a mix of data types. <br/></p>
 
 ```python
