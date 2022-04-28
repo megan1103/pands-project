@@ -13,7 +13,8 @@
   <br>>***[Histogram Plot](#histogram-plot)***
   <br>>***[Scatter Plot](#scatter-plot)***
   <br>>***[Pair Plot](#pair-plot)***
-  <br>>***[Correlation Plot](#correlation-plot)***
+  <br>>***[Correlation Plot](#correlation-plot)***<br>
+***[Conclusion](#conclusion)***<br>
 
 ## Introduction 
 <p align="justify">
@@ -30,7 +31,7 @@ This ReadMe file contains an overview of my research carried out on the Fisher�
 
 
 ## Summary of Dataset 
->#### *Load the data* 
+>#### *Load the data*
 <p align="justify">Before the dataset was loaded, python libraries were imported. These libraries allowed for visualisations to be created and queries performed. Abbreviated names were assigned to the libraries once imported, solely to save time. <br/> </p>
 
 ```python 
@@ -53,7 +54,7 @@ csv_file = 'C:/Users/odonovanm/Documents/iris dataset.csv'
 iris_data =  pd.read_csv(csv_file)
 ```
 
->#### *Data Overview*
+>#### **Data Overview**
 <p align="justify">In terms of research analysis, this is considered a small dataset. The data frame consists of 150 cases, each row of the table representing an iris flower; including its species and dimensions of its botanical parts, sepal and petal, in centimetres. There are the same number of Virginica, Setosa, and Versicolor samples. <br/> </p>
 
 ```python
@@ -113,14 +114,14 @@ iris_data.info()
  <br/>
 
 
-<p align="justify">The <em>describe()</em> command also provided statistical insight on the numeric type columns.<em>Describe</em> provided summary of statistic calculations; showing that all 4 measures had the same count and sepal length had the largest mean value which would be expected, based on the flower type image above. We know that sepal measurements are from a larger area of the flower but using the <em>describe()</em> command confirmed this, since the min and max sepal measurements were larger than that of the petal measurements. The <em>describe()</em> command also provides the standard deviation, which was amount of variation across the data frame. The quantiles of the data frame were also given, showing the distribution between the minimum and maximum values. <em>Describe()</em> can also be run on selected columns:  <br/></p>
+<p align="justify">The <em>describe()</em> command also provided statistical insight on the numeric type columns.<em>Describe</em> provided summary of statistic calculations; showing that all 4 measures had the same count and sepal length had the largest mean value which would be expected, based on the flower type image above. We know that sepal measurements are from a larger area of the flower but using the <em>describe()</em> command confirmed this, since the min and max sepal measurements were larger than that of the petal measurements. The <em>describe()</em> command also provides the standard deviation, which was amount of variation across the data frame. The quantiles of the data frame were also given, showing the distribution between the minimum and maximum values. A large proportion of sepal and petal length data points were found within the 75th quantile range. <em>Describe()</em> command was also applied to selected columns and grouped by species.  <br/></p>
 
 ```python
 iris_data.describe()
 ```
  <br/>
 
-|   | Sepal_Length     | Sepal_Width      | Petal_Length     | Petal_Width     |
+|   | Sepal Length     | Sepal Width      | Petal Length     | Petal Width     |
 | ------------- | ------------- | -------- | -------- | -------- |
 | count |   150.000000  | 150.000000  |  150.000000  | 150.000000 |
 | mean     |  5.843333   |  3.054000      | 3.758667    | 1.198667 |
@@ -138,7 +139,7 @@ iris_data[["Sepal_Length"]].describe()
 ```
  <br/>
  
-|Name: Sepal_Length   | dtype: float64     |
+|Name: Sepal Length   | dtype: float64     |
 | ------------- | ------------- |
 |count |   150.000000 |
 |mean  |     5.843333 |
@@ -148,6 +149,45 @@ iris_data[["Sepal_Length"]].describe()
 |50%   |     5.800000 |
 |75%   |     6.400000 |
 |max   |     7.900000 |
+
+ <br/>
+  
+```python
+print(iris.groupby(["Species"])[["Sepal Length"]].describe())
+print(iris.groupby(["Species"])[["Sepal Width"]].describe())
+print(iris.groupby(["Species"])[["Petal Length"]].describe())
+print(iris.groupby(["Species"])[["Petal Width"]].describe())
+```
+ <br/>
+ 
+**Sepal Length**
+   | species     | count |    mean    |     std   | min   |   25%  |  50%  |  75% |   max |
+| ------------- | ------------- | -------- | -------- | -------- |------------- | -------- | -------- | -------- |
+| setosa        |       50.0   | 5.006   | 0.352490  |  4.3  |  4.800  |  5.0   | 5.2  |  5.8 |
+| versicolor       |    50.0  |  5.936  |   0.516171  |  4.9  |  5.600   | 5.9   | 6.3  |  7.0 |
+| virginica       |     50.0  |  6.588  |  0.635880  |  4.9   | 6.225 |   6.5  |  6.9   | 7.9 |
+
+**Sepal Width**
+   | species     | count |    mean    |     std   | min   |   25%  |  50%  |  75% |   max |
+| ------------- | ------------- | -------- | -------- | -------- |------------- | -------- | -------- | -------- |
+| setosa          |    50.0  |  3.418  |  0.381024  |  2.3  |  3.125   | 3.4  |  3.675   | 4.4 |
+| versicolor      |    50.0  |  2.770   | 0.313798   | 2.0   | 2.525   | 2.8   | 3.000   | 3.4 |
+| virginica      |     50.0   | 2.974  |  0.322497   | 2.2   | 2.800   | 3.0  |  3.175   | 3.8 |
+          
+**Petal Length**
+   | species     | count |    mean    |     std   | min   |   25%  |  50%  |  75% |   max |
+| ------------- | ------------- | -------- | -------- | -------- |------------- | -------- | -------- | -------- |
+| setosa             |  50.0  |  1.464  |  0.173511  |  1.0 |   1.4  |  1.50  |  1.575  |  1.9 |
+| versicolor         |  50.0   | 4.260  |  0.469911   | 3.0   | 4.0   | 4.35   | 4.600   | 5.1 |
+| virginica          |  50.0   | 5.552  |  0.551895  |  4.5 |   5.1  |  5.55  |  5.875  |  6.9 |
+           
+**Petal Width**
+   | species     | count |    mean    |     std   | min   |   25%  |  50%  |  75% |   max |
+| ------------- | ------------- | -------- | -------- | -------- |------------- | -------- | -------- | -------- |
+| setosa             | 50.0   | 0.244   | 0.107210   | 0.1   | 0.2   | 0.2   | 0.3   | 0.6 |
+| versicolor        |  50.0   | 1.326  |  0.197753   | 1.0  |  1.2  |  1.3  |  1.5  |  1.8 |
+| virginica        |   50.0   | 2.026   | 0.274650   | 1.4   | 1.8   | 2.0   | 2.3   | 2.5 |
+
 
  <br/>
  
@@ -217,3 +257,17 @@ sns.heatmap(iris_data.corr(),  linecolor = 'white', linewidths = 1,annot=True)
 
 
  <br/>
+ 
+### Conclusion
+<p align="justify">The Iris dataset is often used as a test case to examine classification within machine learning. For this project, I used the Iris dataset to examine the overall dataset and the relationship between Iris flower types across flower measurements. The iris dataset contains three classes of flowers, Versicolor, Setosa, Virginica, and each class contains 4 features, ‘Sepal length’, ‘Sepal width’, ‘Petal length’, ‘Petal width’. <br/> </p> 
+
+<p align="justify">The standard deviation in the petal lengths shows the highest variability of the four measurements at 1.76 while the standard deviations of the petal width is approx 0.43. By grouping the decribe command by species, showed that Virginica had the highest standard deviation across petal measurements and sepal length. The standard deviations also showed that the petal length measurements of the Iris Setosa were much less variable than that of the other two species. The measurements of the petal width has the lowest average measurements. <br/> </p> 
+<p align="justify">When sparated by species, setosa flowers were considerably lower then the other flower types due to the minimun petal width being 0.1 cm and max width being 0.6cm which is considerably smaller compared to virginica min and max petal widths being 1.4 cm and 2.5cm. However, setosa flowers had the largest min and max widths for sepal measurements. <br/> </p>
+
+<p align="justify"> The histogram plot shows that sepal width is the only feature with a normal distribution. From the plot, the distribution is symetric on either side of the central point. The scatter plot showed quite a strong positive relationship overall between the petal length and petal width measurements.  The relationship between petal measurements appeared almost linear. This was not the case for sepal measurements. <br/> </p>
+
+<p align="justify"> From the seaborn pair plot, the visualization showed that the Setosa flower was well separated from the other flower types. The plot also shows that Setosa flowers are the shortest, while Versicolor flowers are the largest. There was not a large overlap of data points between Setosa flowers and the other species based on petal and sepal feautures.<br/> </p>
+
+
+<p align="justify"> Both correlation plots showed that the highest correlation existed between petal length and width. A slightly high correlation also existed between sepal length and petal features. <br/> </p>
+ 
