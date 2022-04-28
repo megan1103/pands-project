@@ -34,7 +34,10 @@ print(iris_data.describe())
 print(iris_data.info())
 
 ## group the example dataframe by the species and then run the describe() method on iris. This would run .describe() on the sepal_length values for each season as a grouped dataset. 
-print(iris_data.groupby(["Species"])[["Sepal-Length"]].describe())
+print(iris.groupby(["Species"])[["Sepal Length"]].describe())
+print(iris.groupby(["Species"])[["Sepal Width"]].describe())
+print(iris.groupby(["Species"])[["Petal Length"]].describe())
+print(iris.groupby(["Species"])[["Petal Width"]].describe())
 
 ## export to a csv a summary table for each flower feature
 describe_sepal_length = iris['Sepal-Length'].describe()
