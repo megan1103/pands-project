@@ -15,6 +15,7 @@
   <br>>***[Pair Plot](#pair-plot)***
   <br>>***[Correlation Plot](#correlation-plot)***<br>
 ***[Conclusion](#conclusion)***<br>
+***[References](#references)***<br>
 
 ## Introduction 
 <p align="justify">
@@ -114,7 +115,7 @@ iris_data.info()
  <br/>
 
 
-<p align="justify">The <em>describe()</em> command also provided statistical insight on the numeric type columns.<em>Describe</em> provided summary of statistic calculations; showing that all 4 measures had the same count and sepal length had the largest mean value which would be expected, based on the flower type image above. We know that sepal measurements are from a larger area of the flower but using the <em>describe()</em> command confirmed this, since the min and max sepal measurements were larger than that of the petal measurements. The <em>describe()</em> command also provides the standard deviation, which was amount of variation across the data frame. The quantiles of the data frame were also given, showing the distribution between the minimum and maximum values. A large proportion of sepal and petal length data points were found within the 75th quantile range. <em>Describe()</em> command was also applied to selected columns and grouped by species.  <br/></p>
+<p align="justify">The <em>describe()</em> command also provided statistical insight on the numeric type columns.<em>Describe</em> provided summary of statistic calculations; showing that all 4 measures had the same count and sepal length had the largest mean value which would be expected, based on the flower type image above. We know that sepal measurements are from a larger area of the flower but using the <em>describe()</em> command confirmed this, since the min and max sepal measurements were larger than that of the petal measurements. The <em>describe()</em> command also provides the standard deviation, which was amount of variation across the data frame. The quantiles of the data frame were also given, showing the distribution between the minimum and maximum values. A large proportion of sepal and petal length data points were found within the upper quantile range. <em>Describe()</em> command was also applied to selected columns and grouped by species.  <br/></p>
 
 ```python
 iris_data.describe()
@@ -262,12 +263,26 @@ sns.heatmap(iris_data.corr(),  linecolor = 'white', linewidths = 1,annot=True)
 <p align="justify">The Iris dataset is often used as a test case to examine classification within machine learning. For this project, I used the Iris dataset to examine the overall dataset and the relationship between Iris flower types across flower measurements. The iris dataset contains three classes of flowers, Versicolor, Setosa, Virginica, and each class contains 4 features, ‘Sepal length’, ‘Sepal width’, ‘Petal length’, ‘Petal width’. <br/> </p> 
 
 <p align="justify">The standard deviation in the petal lengths shows the highest variability of the four measurements at 1.76 while the standard deviations of the petal width is approx 0.43. By grouping the decribe command by species, showed that Virginica had the highest standard deviation across petal measurements and sepal length. The standard deviations also showed that the petal length measurements of the Iris Setosa were much less variable than that of the other two species. The measurements of the petal width has the lowest average measurements. <br/> </p> 
-<p align="justify">When sparated by species, setosa flowers were considerably lower then the other flower types due to the minimun petal width being 0.1 cm and max width being 0.6cm which is considerably smaller compared to virginica min and max petal widths being 1.4 cm and 2.5cm. However, setosa flowers had the largest min and max widths for sepal measurements. <br/> </p>
+<p align="justify">When sparated by species, setosa flowers were considerably lower then the other flower types due to the minimun petal width being 0.1 cm and max width being 0.6cm which is considerably smaller compared to virginica min and max petal widths being 1.4 cm and 2.5cm. However, setosa flowers had the largest min and max widths for sepal measurements. The upper quartile for petal width ranged between 0.3 cm for setosa flowers and 2.3 for virginica flowers while the upper quartile for petal length ranged between 1.5cm and 5.8cm for Setosa and Virginica flowers respectivitly.  <br/> </p>
 
 <p align="justify"> The histogram plot shows that sepal width is the only feature with a normal distribution. From the plot, the distribution is symetric on either side of the central point. The scatter plot showed quite a strong positive relationship overall between the petal length and petal width measurements.  The relationship between petal measurements appeared almost linear. This was not the case for sepal measurements. <br/> </p>
 
-<p align="justify"> From the seaborn pair plot, the visualization showed that the Setosa flower was well separated from the other flower types. The plot also shows that Setosa flowers are the shortest, while Versicolor flowers are the largest. There was not a large overlap of data points between Setosa flowers and the other species based on petal and sepal feautures.<br/> </p>
-
+<p align="justify"> From the seaborn pair plot, the visualization showed that the Setosa flowers was well separated from the other flower types. The plot also shows that Setosa flowers are the shortest, while Versicolor flowers are the largest. There was not a large overlap of data points between Setosa flowers and the other species based on petal and sepal feautures.<br/> </p>
 
 <p align="justify"> Both correlation plots showed that the highest correlation existed between petal length and width. A slightly high correlation also existed between sepal length and petal features. <br/> </p>
  
+ <br/>
+ 
+### References
+<br /> - *[1] :* https://www.programiz.com/python-programming/methods/built-in/list
+<br /> - *[2] :* https://pandas.pydata.org
+<br /> - *[3] :* https://matplotlib.org
+<br /> - *[4] :* https://seaborn.pydata.org
+<br /> - *[5] :* https://pandas.pydata.org
+<br /> - *[6] :* https://en.wikipedia.org/ 
+<br /> - *[7] :* https://www.w3schools.com/python/
+<br /> - *[8] :* https://www.w3schools.com/html/ 
+<br /> - *[9] :* https://www.datacamp.com/community/tutorials/introduction-machine-learning-python
+<br /> - *[10] :* http://www.lac.inpe.br/~rafael.santos/Docs/CAP394/WholeStory-Iris.html
+<br /> - *[11] :* http://rstudio-pubs-static.s3.amazonaws.com/450733_9a472ce9632f4ffbb2d6175aaaee5be6.html
+<br /> - *[12] :* https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/run-calculations-summary-statistics-pandas-dataframes/
